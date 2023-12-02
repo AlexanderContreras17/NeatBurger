@@ -1,0 +1,25 @@
+﻿@model MenuViewModel;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<section class="menu3">
+
+    <div>
+        <h1>NUESTRO MENÚ</h1>
+        @foreach (var clasificacion in Model.Clasificaciones)
+        {
+            <h3>@(clasificacion.Nombre)</h3>
+            @foreach (var hamburguesa in clasificacion.Hamburguesas)
+            {
+
+                <h2 class="seleccionado"><a href="menu3.html"><span>@hamburguesa.Nombre</span> <span class="price">$@hamburguesa.Precio</span></a></h2>
+            }
+        }
+    </div>
+    <div>
+        <img src="~/hamburguesas/@(Model.Hamburguesa.Id).png" />
+        <p>@Model.Hamburguesa.Descripcion</p>
+    </div>
+</section>

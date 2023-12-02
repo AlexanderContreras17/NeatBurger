@@ -1,0 +1,22 @@
+﻿@model NeatBurger.Models.ViewModels.PromocionesViewModel
+@{
+    ViewData["Title"] = "Promociones";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<section class="menu1">
+    <img src="~/hamburguesas/@(Model.id).png" />
+    <div class="datos">
+        <h3>
+            <del>@Model.PrecioOriginal.ToString("c")</del>
+            <b>@Model.PrecioFinal.ToString("c")</b>
+        </h3>
+        <h2>@Model.Nombre.ToUpper()</h2>
+        <p>@Model.Descripcion</p>
+    </div>
+    <span>
+        <a href="~/promociones/@(Model.PromocionAnterior.ToLower().Replace(" ","-"))">&lt;</a>
+        <a href="promociones/@(Model.PromocionSiguiente.ToLower().Replace(" ","-"))">&gt;</a>
+    </span>
+</section>
+
